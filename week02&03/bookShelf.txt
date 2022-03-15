@@ -1,0 +1,5 @@
+[
+  {ujas1%FMI adventures1%123.12%fmi1}
+  {ujas2%FMI adventures2%123.12%fmi2}
+  {ujas3%FMI adventures3%123.12%fmi3}
+]
