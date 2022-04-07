@@ -22,7 +22,7 @@ private:
 
 public:
     AirplaneTicket();
-    AirplaneTicket(const char *, const char *, const char *, double, int, int, bool);
+    AirplaneTicket(const char *, const char *, const char *, double, int, int, bool, const Person&);
     AirplaneTicket(const AirplaneTicket &other);
     AirplaneTicket &operator=(const AirplaneTicket &other);
     ~AirplaneTicket();
@@ -44,6 +44,7 @@ public:
     void setFlightSeat(int flightSeat);
     void setDuration(int duration);
     void setBussinesClass(bool bussinesClass);
+    void setHolder(const Person& holder);
 
     void fillTicketInformation();
 	void changeDate(const char* date, double price, bool businessClass);
@@ -54,4 +55,6 @@ public:
 	const char* getHolderFamilyName() const;
 	void changePerson(const Person& second);
 };
+
+
 #endif // AIRPLANE_H

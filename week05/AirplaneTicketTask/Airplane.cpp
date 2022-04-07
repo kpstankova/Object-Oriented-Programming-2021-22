@@ -28,9 +28,11 @@ AirplaneTicket::AirplaneTicket() {
     setFlightSeat(1);
     setDuration(150);
     setBussinesClass(true);
+    setHolder(Person());
 }
 
-AirplaneTicket::AirplaneTicket(const char *startingPoint, const char *endPoint, const char *date, double price, int flightSeat, int duration, bool businessClass) {
+AirplaneTicket::AirplaneTicket(const char *startingPoint, const char *endPoint, 
+        const char *date, double price, int flightSeat, int duration, bool businessClass, const Person& holder) {
     setStartingPoint(startingPoint);
     setEndPoint(endPoint);
     setDate(date);
@@ -38,6 +40,7 @@ AirplaneTicket::AirplaneTicket(const char *startingPoint, const char *endPoint, 
     setFlightSeat(flightSeat);
     setDuration(duration);
     setBussinesClass(bussinesClass);
+    setHolder(holder);
 }
 
 AirplaneTicket &AirplaneTicket::operator=(const AirplaneTicket &other) {
@@ -122,6 +125,10 @@ void AirplaneTicket::setBussinesClass(bool bussinesClass) {
     this->bussinesClass = bussinesClass;
 }
 
+void AirplaneTicket::setHolder(const Person& holder) {
+    this->holder = holder;
+}
+
 void AirplaneTicket::fillTicketInformation() {
     //entering values from the console
     char * startingPoint, *endPoint;
@@ -143,8 +150,7 @@ void AirplaneTicket::fillTicketInformation() {
 	std::cin >> duration;
 	std::cout << "Enter business class(1 - for business, 0 - for economy): ";
 	std::cin >> bussinesClass;
-    //calling the constructor to create the new object with the provided values
-    AirplaneTicket(startingPoint, endPoint, date, price, flightSeat, duration, bussinesClass);
+    
 
     char * firstName, *surname, *familyName;
     int egn, age;
@@ -164,6 +170,9 @@ void AirplaneTicket::fillTicketInformation() {
 	holder.setFamilyName(familyName);
 	holder.setEgn(egn);
 	holder.setAge(age);
+
+    //calling the constructor to create the new object with the provided values
+    AirplaneTicket(startingPoint, endPoint, date, price, flightSeat, duration, bussinesClass, holder);
 }
 
 void AirplaneTicket::printTicket() const {

@@ -33,4 +33,6 @@ public:
 	void setEgn(int egn);
 	void setAge(int age);
 };
+
+
 #endif //PERSON_H_INCLUDED

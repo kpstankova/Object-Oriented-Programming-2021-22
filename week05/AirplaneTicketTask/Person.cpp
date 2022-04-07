@@ -1,12 +1,12 @@
 #include "Person.h"
 
-void Person::erase() {
+inline void Person::erase() {
     delete[] this->firstName;
     delete[] this->surname;
     delete[] this-> familyName;
 }
 
-void Person::copy(const Person& other) {
+inline void Person::copy(const Person& other) {
     setFirstName(other.firstName);
     setSurname(other.surname);
     setFamilyName(other.familyName);
@@ -14,7 +14,7 @@ void Person::copy(const Person& other) {
     setAge(other.age);
 }
 
-Person::Person() {
+inline Person::Person() {
     setFirstName("");
     setSurname("");
     setFamilyName("");
@@ -22,7 +22,7 @@ Person::Person() {
     setAge(0);
 }
 
-Person::Person(const char * firstName, const char* surname, const char* familyName, int egn, int age) {
+inline Person::Person(const char * firstName, const char* surname, const char* familyName, int egn, int age) {
     setFirstName(firstName);
     setSurname(surname);
     setFamilyName(familyName);
@@ -30,11 +30,11 @@ Person::Person(const char * firstName, const char* surname, const char* familyNa
     setAge(age);
 }
 
-Person::Person(const Person& other) {
+inline Person::Person(const Person& other) {
     copy(other);
 }
 
-Person& Person::Person::operator=(const Person& other) {
+inline Person& Person::Person::operator=(const Person& other) {
     if(this != &other) {
         this->erase();
         this->copy(other);
@@ -43,48 +43,48 @@ Person& Person::Person::operator=(const Person& other) {
     return *this;
 }
 
-const char* Person::getFirstName() const {
+inline const char* Person::getFirstName() const {
 	return firstName;
 }
 
-const char* Person::getSurname() const {
+inline const char* Person::getSurname() const {
 	return surname;
 }
 
-const char* Person::getFamilyName() const {
+inline const char* Person::getFamilyName() const {
 	return familyName;
 }
 
-int Person::getEgn() const {
+inline int Person::getEgn() const {
 	return egn;
 }
 
-int Person::getAge() const {
+inline int Person::getAge() const {
 	return age;
 }
 
-void Person::setFirstName(const char* firstName) {
+inline void Person::setFirstName(const char* firstName) {
 	delete[] this->firstName;
     this->firstName = new char[strlen(firstName) + 1];
     strcpy(this->firstName, firstName);
 }
 
-void Person::setSurname(const char* surname) {
+inline void Person::setSurname(const char* surname) {
 	delete[] this->surname;
     this->surname = new char[strlen(surname) + 1];
     strcpy(this->surname, surname);
 }
 
-void Person::setFamilyName(const char* familyName) {
+inline void Person::setFamilyName(const char* familyName) {
 	delete[] this->familyName;
     this->familyName = new char[strlen(familyName) + 1];
     strcpy(this->familyName, familyName);
 }
 
-void Person::setEgn(int egn) {
+inline void Person::setEgn(int egn) {
 	this->egn = egn;
 }
 
-void Person::setAge(int age) {
+inline void Person::setAge(int age) {
 	this->age = age;
 }
