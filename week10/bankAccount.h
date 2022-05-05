@@ -7,6 +7,7 @@ private:
     double balance;
 
 public:
+    // BankAccount();
     BankAccount(const Person& owner, double balance);
 
     void withdraw(double amount);

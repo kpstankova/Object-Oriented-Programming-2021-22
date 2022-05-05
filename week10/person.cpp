@@ -1,5 +1,4 @@
 #include "person.h"
-#include <exception>
 
 void Person::copy(const Person& other) {
     setName(other.name);

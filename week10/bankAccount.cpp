@@ -1,5 +1,9 @@
 #include "bankAccount.h"
 
+// BankAccount::BankAccount() {
+//     balance = 0;
+// }
+
 BankAccount::BankAccount(const Person& _owner, double _balance) : owner(_owner), balance(_balance) {}
 
 void BankAccount::withdraw(double amount) {
